@@ -1,6 +1,6 @@
 ### CINNAMON GAMES
 
-# ![pageres](src/images/logo.png =80x)
+<img src="src/images/logo.png" width="80">
 
 Website to show released games and games in development
 

@@ -1,46 +1,49 @@
 import 'styles/Nav.less';
 
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
+import {Link} from 'react-router';
+import Utils from '../../utils/CinnamonUtils';
 
 class Nav extends Component {
 
+    static propTypes = {
+        sections: PropTypes.arrayOf(PropTypes.string)
+    };
+
     constructor(props) {
         super(props);
-        this.state = {index: 0};
-        this.handleClick = this.handleClick.bind(this);
-        this.isActive = this.isActive.bind(this);
     }
 
-    handleClick(event) {
-        let index = parseInt(event.target.id.split('nav-')[1]);
-        this.setState({index});
-    }
-
-    isActive(index) {
-        return index === this.state.index ? 'active' : '';
-    }
+    static defaultProps = {
+        sections: ['Games', 'About Us', 'Contact Us']
+    };
 
     render () {
         let brandImg = '/images/logo.png';
-        let sections = [];
+        let gameSections = [];
 
-        ['Games', 'About Us'].forEach((section, index) => {
-            sections.push(<li key={index} className={this.isActive(index)}><a id={`nav-${index}`} onClick={this.handleClick} href="#">{section}</a></li>);
+        this.props.sections.forEach((section, index) => {
+            gameSections.push(<li key={index}><Link activeClassName="active" to={`/${Utils.cleanStringAndLowerCase(section)}`}>{section}</Link></li>);
         });
         return (
-            <nav className="navbar navbar-default">
-                <div className="container-fluid">
-                    <div className="navbar-header">
-                        <a className="navbar=brand" href="#">
-                        <img id="cinnamon-brand-logo" alt="Brand" src={brandImg}/>
-                        </a>
-                        <span className="cinnamon-brand-name">CINNAMON GAMES</span>
-                        <ul className="nav navbar-nav navbar-right">
-                            {sections}
-                        </ul>
+            <div className="cinnamon-container">
+                <nav className="navbar navbar-default">
+                    <div className="container-fluid">
+                        <div className="navbar-header">
+                            <a className="navbar=brand" href="#">
+                                <img id="cinnamon-brand-logo" alt="Brand" src={brandImg}/>
+                            </a>
+                            <span className="cinnamon-brand-name">CINNAMON GAMES</span>
+                            <ul className="nav navbar-nav navbar-right">
+                                {gameSections}
+                            </ul>
+                        </div>
                     </div>
+                </nav>
+                <div className="content">
+                    {this.props.children}
                 </div>
-            </nav>
+            </div>
         );
     }
 }

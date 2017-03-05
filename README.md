@@ -1,3 +1,5 @@
+### CINNAMON GAMES
+
 # ![pageres](src/images/logo.png)
 
 Website to show released games and games in development

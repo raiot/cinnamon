@@ -26,7 +26,7 @@ class Nav extends Component {
             gameSections.push(<li key={index}><Link activeClassName="active" to={`/${Utils.cleanStringAndLowerCase(section)}`}>{section}</Link></li>);
         });
         return (
-            <div className="cinnamon-container">
+            <div className="cinnamon-nav-container">
                 <nav className="navbar navbar-default">
                     <div className="container-fluid">
                         <div className="navbar-header">

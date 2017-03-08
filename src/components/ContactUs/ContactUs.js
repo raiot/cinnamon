@@ -17,7 +17,7 @@ class ContactUs extends Component {
                         <span className="input-group-addon" id="basic-addon2">@example.com</span>
                     </div>
                     <div className="input-group">
-                        <textarea type="textarea" cols="80" rows="10" className="form-control" placeholder="Your message"></textarea>
+                        <textarea type="textarea" cols="100" rows="10" className="form-control" placeholder="Your message"></textarea>
                     </div>
                     <button type="button" className="btn btn-default">Send</button>
                 </form>

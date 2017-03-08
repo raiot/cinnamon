@@ -41,7 +41,7 @@ class Nav extends Component {
         });
         return (
             <div className="cinnamon-nav-container">
-                <nav className="navbar navbar-default">
+                <nav className="navbar navbar-default" role="navigation">
                     <div className="container-fluid">
                         <div className="navbar-header">
                             <a id="menu-0" onClick={this.handleClick} className="navbar=brand" href="#">

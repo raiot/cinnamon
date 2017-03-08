@@ -1,5 +1,7 @@
+@smartphones: ~"only screen and (max-width: 768px)";
+
 .contactus-container {
-    margin: 0 30%;
+    margin: 0 25%;
 
     h3 {
         text-align: center;
@@ -15,5 +17,11 @@
 
     button {
         float: right;
+    }
+}
+
+@media @smartphones {
+    .contactus-container {
+        margin: 0 10%;
     }
 }
